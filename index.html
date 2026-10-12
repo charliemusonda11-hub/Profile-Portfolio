@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Charles Musonda | Portfolio</title>
+<meta name="description" content="Charles Musonda — Computer Science student and web developer from Zambia.">
+<style>
+:root{--bg:#f7f8f6;--surface:#fff;--ink:#12181c;--muted:#5b6770;--line:#e1e5e3;--accent:#0f7a6b;--accent-ink:#fff;--chip:#e7f1ee;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1115;--surface:#121b21;--ink:#eaf0ee;--muted:#93a1a8;--line:#22313a;--accent:#3fd0b6;--accent-ink:#06201b;--chip:#16262b}}
+:root[data-theme="dark"]{--bg:#0b1115;--surface:#121b21;--ink:#eaf0ee;--muted:#93a1a8;--line:#22313a;--accent:#3fd0b6;--accent-ink:#06201b;--chip:#16262b}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:700;letter-spacing:-.01em}
+.logo span{color:var(--accent)}
+.links{display:flex;gap:22px;align-items:center;font-size:.92rem;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+.btn{display:inline-block;padding:11px 20px;border-radius:999px;font-weight:600;font-size:.92rem;border:1px solid var(--line);background:var(--surface)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:hover{transform:translateY(-1px)}
+.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:center;padding:84px 0 72px}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-size:clamp(2.2rem,5.4vw,3.8rem);line-height:1.08;letter-spacing:-.03em;margin:14px 0 18px}
+.lead{color:var(--muted);font-size:1.08rem;max-width:560px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.avatar{aspect-ratio:1;border-radius:28px;object-fit:cover;max-width:340px;width:100%;justify-self:center;border:1px solid var(--line)}
+.open{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:7px 14px;border-radius:999px;background:var(--chip);font-size:.85rem;font-weight:600}
+.open::before{content:"";width:9px;height:9px;border-radius:50%;background:#2fbf71;box-shadow:0 0 0 4px rgba(47,191,113,.2)}
+section{padding:72px 0;border-top:1px solid var(--line)}
+.kicker{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h2{font-size:clamp(1.7rem,3.6vw,2.4rem);letter-spacing:-.02em;margin:8px 0 12px;line-height:1.15}
+.sub{color:var(--muted);max-width:620px;margin:0 0 40px}
+.project{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;padding:34px 0;border-bottom:1px solid var(--line)}
+.project:last-of-type{border-bottom:0}
+.project:nth-child(even) .pv{order:2}
+.num{color:var(--accent);font-weight:600;font-size:.85rem}
+h3{font-size:1.5rem;margin:6px 0 2px;letter-spacing:-.01em}
+.role{color:var(--muted);font-size:.92rem;margin:0 0 12px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.tags span{background:var(--chip);color:var(--ink);padding:4px 12px;border-radius:999px;font-size:.8rem}
+.plinks{display:flex;gap:18px;font-weight:600;font-size:.92rem;color:var(--accent)}
+.pv{border:1px solid var(--line);border-radius:20px;background:var(--surface);min-height:230px;padding:22px;display:flex;flex-direction:column;justify-content:center;gap:10px;overflow:hidden}
+.bar{height:10px;border-radius:6px;background:var(--chip)}
+.bar.a{background:var(--accent);width:40%}
+.row{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.88rem;background:var(--bg)}
+.row b{color:var(--accent)}
+.seat-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
+.seat-grid i{aspect-ratio:1;border-radius:6px;background:var(--chip)}
+.seat-grid i.on{background:var(--accent)}
+.mono{font:600 .78rem ui-monospace,Menlo,Consolas,monospace;color:var(--muted);letter-spacing:.06em}
+.other{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}
+.card{border:1px solid var(--line);background:var(--surface);border-radius:16px;padding:20px}
+.card h4{margin:0 0 4px;font-size:1.05rem}
+.card p{margin:0 0 10px;color:var(--muted);font-size:.92rem}
+.card a{color:var(--accent);font-weight:600;font-size:.9rem}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.about p{color:var(--muted);margin:0 0 16px}
+.tl{border-left:2px solid var(--line);padding-left:20px;margin:0 0 22px}
+.tl small{color:var(--accent);font-weight:600;letter-spacing:.06em}
+.tl h4{margin:2px 0 0;font-size:1.05rem}
+.tl p{margin:2px 0 0;font-size:.92rem}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:36px}
+.skills h4{margin:0 0 6px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.skills p{margin:0;font-size:.95rem}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:28px}
+.contact a{border:1px solid var(--line);background:var(--surface);border-radius:16px;padding:18px 20px;display:block}
+.contact a:hover{border-color:var(--accent)}
+.contact small{display:block;color:var(--muted);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+.contact span{font-weight:600;word-break:break-word}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:820px){
+.hero,.project,.about{grid-template-columns:1fr;gap:28px}
+.hero{padding:48px 0}.project:nth-child(even) .pv{order:0}
+.avatar{max-width:200px;justify-self:start;order:-1}
+.links a:not(.btn){display:none}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="logo" href="#home">Charles<span>.</span></a>
+<div class="links"><a href="#work">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+<a class="btn primary" href="assets/Charles_Musonda_Resume.pdf" target="_blank" rel="noopener">Download CV</a></div>
+</nav></div></header>
+
+<main id="home">
+<div class="wrap">
+<div class="hero">
+<div>
+<div class="eyebrow">Computer Science · Web Development · IT Support</div>
+<h1>I build practical, user-friendly software.</h1>
+<p class="lead">I'm Charles Musonda, a Computer Science student at Copperbelt University. I turn ideas into clean web applications and database-driven tools, and I support real users every day in IT. I learn by building, one project at a time.</p>
+<div class="open">Open to work · Remote &amp; hybrid roles welcome</div>
+<div class="cta">
+<a class="btn primary" href="#work">See my work</a>
+<a class="btn" href="https://github.com/charliemusonda11-hub" target="_blank" rel="noopener">GitHub ↗</a>
+<a class="btn" href="https://www.linkedin.com/in/charles-musonda-0538ab32a" target="_blank" rel="noopener">LinkedIn ↗</a>
+</div>
+</div>
+<img class="avatar" src="assets/images/charles.jpg" alt="Charles Musonda">
+</div>
+</div>
+
+<section id="work"><div class="wrap">
+<div class="kicker">Selected work</div>
+<h2>Projects worth showing.</h2>
+<p class="sub">A selection of web projects from my coursework and independent practice. Open the code to see how each one is built.</p>
+
+<article class="project">
+<div>
+<div class="num">01 · Full-stack web application</div>
+<h3>Bus Ticketing &amp; Management System</h3>
+<p class="role">Developer · Laravel project</p>
+<p>A platform for browsing bus schedules, selecting seats and managing bookings, with separate customer, admin and driver workflows. Built on a structured data model for buses, routes, schedules, seats and bookings.</p>
+<div class="tags"><span>Laravel</span><span>PHP</span><span>Livewire</span><span>MySQL</span><span>Tailwind CSS</span></div>
+<div class="plinks"><a href="https://github.com/charliemusonda11-hub/bus-ticketing-system" target="_blank" rel="noopener">View source ↗</a></div>
+</div>
+<div class="pv" aria-hidden="true">
+<div class="mono">SELECT SEATS</div>
+<div class="seat-grid"><i></i><i class="on"></i><i></i><i></i><i></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="row"><span>Route · Schedule</span><b>Book</b></div>
+</div>
+</article>
+
+<article class="project">
+<div>
+<div class="num">02 · Web fundamentals</div>
+<h3>Student Registration &amp; Results Pages</h3>
+<p class="role">Developer · Course lab</p>
+<p>Semantic HTML pages for collecting student information and presenting course results in a structured table, with attention to form validation, clear labels and accessible markup.</p>
+<div class="tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+<div class="plinks"><a href="https://charliemusonda11-hub.github.io/cs361-lab4/register.html" target="_blank" rel="noopener">Live demo ↗</a><a href="https://github.com/charliemusonda11-hub/cs361-lab4" target="_blank" rel="noopener">Source ↗</a></div>
+</div>
+<div class="pv" aria-hidden="true">
+<div class="mono">STUDENT REGISTRATION</div>
+<div class="bar"></div><div class="bar"></div><div class="bar a"></div>
+<div class="row"><span>Submit form</span><b>→</b></div>
+</div>
+</article>
+
+<article class="project">
+<div>
+<div class="num">03 · JavaScript application</div>
+<h3>Interactive Product Catalog &amp; Cart</h3>
+<p class="role">Developer · Course lab</p>
+<p>Explores JavaScript modules and classes by loading product data from an API, displaying it in a catalog, and keeping the shopping cart in local storage so it survives a refresh.</p>
+<div class="tags"><span>JavaScript</span><span>ES Modules</span><span>Fetch API</span><span>localStorage</span></div>
+<div class="plinks"><a href="https://charliemusonda11-hub.github.io/cs361-mod4-week10/" target="_blank" rel="noopener">Live demo ↗</a><a href="https://github.com/charliemusonda11-hub/cs361-mod4-week10" target="_blank" rel="noopener">Source ↗</a></div>
+</div>
+<div class="pv" aria-hidden="true">
+<div class="mono">PRODUCTS</div>
+<div class="row"><span>Product one</span><b>K120</b></div>
+<div class="row"><span>Product two</span><b>K85</b></div>
+<div class="row"><span>Cart total</span><b>K205.00</b></div>
+</div>
+</article>
+
+<article class="project">
+<div>
+<div class="num">04 · Interactive front end</div>
+<h3>Interactive Portfolio Lab</h3>
+<p class="role">Developer · Course lab</p>
+<p>A practice project on DOM updates and state: a theme switcher, dynamic skill lists, live filtering and basic form validation, all in vanilla JavaScript.</p>
+<div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+<div class="plinks"><a href="https://charliemusonda11-hub.github.io/cs361-mod4b-week9/" target="_blank" rel="noopener">Live demo ↗</a><a href="https://github.com/charliemusonda11-hub/cs361-mod4b-week9" target="_blank" rel="noopener">Source ↗</a></div>
+</div>
+<div class="pv" aria-hidden="true">
+<div class="row"><span>Theme toggle</span><b>◐</b></div>
+<div class="row"><span>Live skill search</span><b>⌕</b></div>
+<div class="row"><span>Interactive controls</span><b>↯</b></div>
+</div>
+</article>
+
+<h3 style="margin-top:36px">Other work</h3>
+<div class="other">
+<div class="card"><h4>This portfolio</h4><p>Personal site built with HTML and CSS, hosted on GitHub Pages.</p><a href="https://github.com/charliemusonda11-hub/Profile-Portfolio" target="_blank" rel="noopener">Source ↗</a></div>
+<div class="card"><h4>Module 1</h4><p>Introductory HTML coursework from my web programming module.</p><a href="https://github.com/charliemusonda11-hub/module-1" target="_blank" rel="noopener">Source ↗</a></div>
+<div class="card"><h4>All repositories</h4><p>Browse everything I'm building and learning from.</p><a href="https://github.com/charliemusonda11-hub?tab=repositories" target="_blank" rel="noopener">GitHub ↗</a></div>
+</div>
+</div></section>
+
+<section id="about"><div class="wrap">
+<div class="kicker">About</div>
+<h2>Student, developer and problem solver.</h2>
+<div class="about">
+<div>
+<p>My work sits between web development, programming fundamentals and database-driven applications. I'm working towards becoming a well-rounded software developer who builds technology that is useful, understandable and reliable.</p>
+<p>I'm pursuing a BSc in Computer Science at Copperbelt University in Kitwe, Zambia. My studies gave me a foundation in programming, data structures, web technologies and computer systems, and my projects let me put those ideas into practice.</p>
+<p>Alongside my studies I work in IT support at the Directorate of ICT at Copperbelt University, which keeps my development grounded in how real people use technology.</p>
+<p>My approach is simple: understand the problem first, build thoughtfully, and keep learning. I speak English and Bemba.</p>
+</div>
+<div>
+<div class="tl"><small>2023 — 2027</small><h4>BSc Computer Science</h4><p>Copperbelt University · Kitwe, Zambia</p><p>Web programming, data structures and algorithms, operating systems, numerical analysis, statistics, computer communication, software engineering.</p></div>
+</div>
+</div>
+<div class="skills">
+<div><h4>Frontend</h4><p>HTML5, CSS3, JavaScript, Tailwind CSS</p></div>
+<div><h4>Backend</h4><p>PHP, Laravel, Livewire</p></div>
+<div><h4>Databases</h4><p>MySQL, SQL, database design</p></div>
+<div><h4>Programming</h4><p>PHP, JavaScript, C++</p></div>
+<div><h4>Tools</h4><p>Git, GitHub, GitHub Pages, VS Code</p></div>
+<div><h4>Focus areas</h4><p>Web development, backend fundamentals, problem solving</p></div>
+</div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+<div class="kicker">Experience</div>
+<h2>Learning in class and beyond it.</h2>
+<p class="sub">Practical IT experience alongside my degree.</p>
+<div class="tl"><small>2026 — PRESENT</small><h4>IT Support</h4><p>Directorate of ICT (DICT) · Copperbelt University</p><p>Providing IT support within the university's ICT directorate and collaborating with a team on an inventory system project. Learning how requirements, workflows and database structure fit together in a real organisation.</p></div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+<div class="kicker">Contact</div>
+<h2>Have an opportunity or an idea?</h2>
+<p class="sub">I'm open to work, including remote positions: internships, junior developer and IT support roles, collaborations and projects where I can contribute and keep growing.</p>
+<div class="cta"><a class="btn primary" href="mailto:charliemusonda11@gmail.com?subject=Let%27s%20connect">Email me ↗</a></div>
+<div class="contact">
+<a href="mailto:charliemusonda11@gmail.com"><small>Email</small><span>charliemusonda11@gmail.com</span></a>
+<a href="tel:+260771531973"><small>Phone</small><span>+260 771 531 973</span></a>
+<a href="https://github.com/charliemusonda11-hub" target="_blank" rel="noopener"><small>GitHub</small><span>charliemusonda11-hub</span></a>
+<a href="https://www.linkedin.com/in/charles-musonda-0538ab32a" target="_blank" rel="noopener"><small>LinkedIn</small><span>Charles Musonda</span></a>
+</div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Charles Musonda · Zambia</span><a href="#home">Back to top ↑</a></div></footer>
+</body>
+</html>
